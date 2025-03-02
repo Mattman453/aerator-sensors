@@ -1,7 +1,7 @@
 all: aerator
 
 aerator: accelerometer.o moisture.o strain_gauge.o temperature.o main.o
-	gcc -lWiringPi accelerometer.o moisture.o strain_gauge.o temperature.o main.o -o main
+	gcc -lWiringPi accelerometer.o moisture.o strain_gauge.o temperature.o main.o -o aerator
 
 clean:
 	rm accelerometer.o moisture.o strain_gauge.o temperature.o main.o aerator
