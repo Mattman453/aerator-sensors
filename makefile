@@ -12,4 +12,8 @@ accelerometer.o: accelerometer.cpp accelerometer.hpp
 moisture.o: moisture.cpp moisture.hpp
 	gcc -lWiringPi -c moisture.cpp -o moisture.o
 
-strain_guage.o: strain_gauge.cpp strain_gauge
+strain_guage.o: strain_gauge.cpp strain_gauge.hpp
+	gcc -lWiringPi -c strain_gauge.cpp -o strain_gauge.o
+
+temperature.o: temperature.cpp temperature.hpp
+	gcc -lWiringPi -c temperature.cpp -o temperature.o
