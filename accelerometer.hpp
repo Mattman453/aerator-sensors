@@ -1,0 +1,3 @@
+#ifndef ACCELEROMETER_HPP
+#define ACCELEROMETER_HPP
+#endif
