@@ -4,10 +4,6 @@
 #include <string>
 #include <chrono>
 #include <thread>
-#include "accelerometer.hpp"
-#include "moisture.hpp"
-#include "strain_gauge.hpp"
-#include "temperature.hpp"
 
 using namespace std;
 
