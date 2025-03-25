@@ -1,11 +1,15 @@
+#include <cstdio>
 #include <iostream>
+#include <bits/stdc++.h>
 #include <unistd.h>
 #include <wiringPiSPI.h>
 #include <string>
 #include <chrono>
 #include <thread>
+#include <boost/algorithm/string.hpp>
 
 using namespace std;
+using namespace boost::algorithm;
 
 static const int CHANNEL = 1;
 
@@ -33,14 +37,31 @@ int getOutput(unsigned char *data) {
     return output;
 }
 
+string setupTemperatre() {
+    system("modprobe w1-gpio");
+    system("modprobe w1-thermo");
+
+    system("ls /sys/bus/w1/devices/ > $HOME/aerator-sensors/List.txt");
+
+    ifstream f("$HOME/aerator-sensors/List.txt");
+    string filename;
+    readline(f, filename);
+    f.close();
+    filename = filename + "w1_slave";
+    return trim(filename);
+}
+
 int main() {
     int fd;
     
-    cout << "Initializing" << endl;
+//    cout << "Initializing" << endl;
     
     fd = wiringPiSPISetup(CHANNEL, 100000) ;
     
-    cout << "Init result: " << fd << endl;
+//    cout << "Init result: " << fd << endl;
+
+    string temperatureFilename = setupTemperature();
+    cout << temperatureFilename << endl;
     
     while (true) {
         unsigned char spiData[3];
