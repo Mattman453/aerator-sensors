@@ -23,6 +23,11 @@ void setChannel(unsigned char *data, int channel) {
     data[0] = data[0] + (channel << 3);
 }
 
+int convertValueToMoistureVoltage(int data) {
+    int output = data/614.4 * 100.0;
+    return output;
+}
+
 int getOutput(unsigned char *data) {
     int output = ((data[0] & 3) << 8) + data[1];
     return output;
@@ -60,7 +65,8 @@ int main() {
         setChannel(spiData, moisture);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
         output[2] = getOutput(spiData);
-        cout << "Moisture: " << output[2] << endl;
+        output[2] = convertValueToMoistureVoltage(output[2]);
+        cout << "Moisture: " << output[2] << "%" << endl;
         sleep(1);
 
         setChannel(spiData, temperature);
