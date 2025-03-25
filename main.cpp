@@ -41,7 +41,7 @@ string setupTemperature() {
 
     system("ls /sys/bus/w1/devices/ > List.txt");
 
-    sleep(5);
+//    sleep(5);
 
     ifstream f("List.txt");
     string filename;
