@@ -35,7 +35,7 @@ int getOutput(unsigned char *data) {
     return output;
 }
 
-string setupTemperatre() {
+string setupTemperature() {
     system("modprobe w1-gpio");
     system("modprobe w1-thermo");
 
