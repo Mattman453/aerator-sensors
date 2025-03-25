@@ -80,7 +80,7 @@ int main() {
 
     string temperatureFilename = setupTemperature();
 //    cout << temperatureFilename << endl;
-    string temperature = getTemperature(temperatureFilename);
+    int temperature = getTemperature(temperatureFilename);
     
     while (true) {
         unsigned char spiData[3];
