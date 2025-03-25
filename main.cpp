@@ -41,9 +41,10 @@ string setupTemperature() {
 
     system("ls /sys/bus/w1/devices/ > $HOME/aerator-sensors/List.txt");
 
-    ifstream f("$HOME/aerator-sensors/List.txt");
+    sleep(5);
+
+    ifstream f("List.txt");
     string filename;
-    getline(f, filename);
     getline(f, filename);
     cout << filename << endl;
     f.close();
