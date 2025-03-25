@@ -7,7 +7,7 @@ clean:
 	rm main.o temperature.o aerator
 	
 main.o: main.cpp temperature.hpp
-	g++ -c main.cpp -o main.o
+	g++ -c main.cpp -o main.o -Wpedantic
 
 temperature.o: temperature.cpp temperature.hpp
-	g++ -c temperature.cpp -o temperature.o
+	g++ -c temperature.cpp -o temperature.o -Wpedantic
