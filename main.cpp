@@ -37,7 +37,7 @@ int getOutput(unsigned char *data) {
 
 string setupTemperature() {
     system("modprobe w1-gpio");
-    system("modprobe w1-thermo");
+    system("modprobe w1-therm");
 
     system("ls /sys/bus/w1/devices/ > $HOME/aerator-sensors/List.txt");
 
