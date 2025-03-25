@@ -10,29 +10,28 @@
 
 using namespace std;
 
-static const int CHANNEL = 1;
+static const long CHANNEL = 1;
 
-static const int pressure = 3;
-static const int moisture= 0;
-static const int force = 2;
-static const int temperature = 1;
+static const long pressure = 3;
+static const long moisture= 0;
+static const long force = 2;
 
-static const float LSBSIZE = 5.0/1024;
+static const double LSBSIZE = 5.0/1024;
 
-void setChannel(unsigned char *data, int channel) {
+void setChannel(unsigned char *data, long channel) {
     data[0] = (0x01 << 7) | (0x01 << 6);
     data[1] = 0;
     data[2] = 0;
     data[0] = data[0] + (channel << 3);
 }
 
-int convertValueToMoistureVoltage(int data) {
-    int output = data/614.4 * 100.0;
+long convertValueToMoistureVoltage(long data) {
+    long output = data/614.4 * 100.0;
     return output;
 }
 
-int getOutput(unsigned char *data) {
-    int output = ((data[0] & 3) << 8) + data[1];
+long getOutput(unsigned char *data) {
+    long output = ((data[0] & 3) << 8) + data[1];
     return output;
 }
 
@@ -52,7 +51,7 @@ string setupTemperature() {
     return filename;
 }
 
-int getTemperature(string filename) {
+long getTemperature(string filename) {
     ifstream f(filename);
     string line;
     
@@ -60,17 +59,17 @@ int getTemperature(string filename) {
 //    cout << line << endl;
     getline(f, line);
 //    cout << line << endl;
-    int loc = line.find("=");
+    long loc = line.find("=");
     line = line.substr(loc + 1);
 //    cout << line << endl;
-    int temp = stoi(line);
+    long temp = stoi(line);
 //    cout << temp << endl;
 
     return (temp / 1000.0) * (9.0/5.0) + 32.0;
 }
 
 int main() {
-    int fd;
+    long fd;
     
 //    cout << "Initializing" << endl;
     
@@ -80,13 +79,13 @@ int main() {
 
     string temperatureFilename = setupTemperature();
 //    cout << temperatureFilename << endl;
-//    int temperature = getTemperature(temperatureFilename);
+//    long temperature = getTemperature(temperatureFilename);
     
     while (true) {
         unsigned char spiData[3];
-        int output[4] = {0,0,0,0};
+        long output[4] = {0,0,0,0};
         
-        /*for (int i = 0; i < 8; i++) {
+        /*for (long i = 0; i < 8; i++) {
             setChannel(spiData, i);
             //cout << to_string(spiData[0]) << endl;
             //this_thread::sleep_for(chrono::nanoseconds(100000000));
