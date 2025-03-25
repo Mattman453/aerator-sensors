@@ -39,11 +39,11 @@ string setupTemperature() {
     system("modprobe w1-gpio");
     system("modprobe w1-therm");
 
-    system("ls /sys/bus/w1/devices/ > $HOME/aerator-sensors/List.txt");
+    system("ls /sys/bus/w1/devices/ > List.txt");
 
     sleep(5);
 
-    ifstream f("$HOME/aerator-sensors/List.txt");
+    ifstream f("List.txt");
     string filename;
     getline(f, filename);
     cout << filename << endl;
