@@ -33,7 +33,7 @@ int main() {
     
     cout << "Initializing" << endl;
     
-    fd = wiringPiSPISetup(CHANNEL, 200000) ;
+    fd = wiringPiSPISetup(CHANNEL, 100000) ;
     
     cout << "Init result: " << fd << endl;
     
@@ -65,8 +65,8 @@ int main() {
         setChannel(spiData, temperature);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
         output[3] = getOutput(spiData);
-        cout << output[3] << endl;
-//        sleep(1);
+        cout << "Temperature: " << output[3] << endl;
+        sleep(1);
         
 //        sleep(1);
     }
