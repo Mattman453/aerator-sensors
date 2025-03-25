@@ -64,7 +64,7 @@ int getTemperature(string filename) {
     line = line.substr(loc + 1);
 //    cout << line << endl;
     int temp = stoi(line);
-    cout << temp << endl;
+//    cout << temp << endl;
 
     return temp;
 }
@@ -80,7 +80,7 @@ int main() {
 
     string temperatureFilename = setupTemperature();
 //    cout << temperatureFilename << endl;
-    int temperature = getTemperature(temperatureFilename);
+//    int temperature = getTemperature(temperatureFilename);
     
     while (true) {
         unsigned char spiData[3];
@@ -109,11 +109,9 @@ int main() {
         cout << "Moisture: " << output[2] << "%" << endl;
         sleep(1);
 
-//        setChannel(spiData, temperature);
-//        wiringPiSPIDataRW(CHANNEL, spiData, 3);
-//        output[3] = getOutput(spiData);
-//        cout << "Temperature: " << output[3] << endl;
-//        sleep(1);
+        output[3] = getTemperature(temperatureFilename);
+        cout << "Temperature: " << output[3] << endl;
+        sleep(1);
         
 //        sleep(1);
     }
