@@ -43,12 +43,12 @@ string setupTemperature() {
 
     sleep(5);
 
-    ifstream f("List.txt");
+    ifstream f("#HOME/aerator-sensors/List.txt");
     string filename;
     getline(f, filename);
     cout << filename << endl;
     f.close();
-    filename = filename + "w1_slave";
+    filename = filename + "/w1_slave";
     return filename;
 }
 
