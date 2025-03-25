@@ -1,8 +1,8 @@
 #include <cstdio>
 #include <iostream>
+#include <bits/stdc++.h>
 #include <unistd.h>
 #include <string>
-#include <stdlib.h>
 #include "temperature.hpp"
 
 using namespace std;
