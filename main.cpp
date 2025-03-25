@@ -103,11 +103,11 @@ int main() {
         cout << "Moisture: " << output[2] << "%" << endl;
         sleep(1);
 
-        setChannel(spiData, temperature);
-        wiringPiSPIDataRW(CHANNEL, spiData, 3);
-        output[3] = getOutput(spiData);
-        cout << "Temperature: " << output[3] << endl;
-        sleep(1);
+//        setChannel(spiData, temperature);
+//        wiringPiSPIDataRW(CHANNEL, spiData, 3);
+//        output[3] = getOutput(spiData);
+//        cout << "Temperature: " << output[3] << endl;
+//        sleep(1);
         
 //        sleep(1);
     }
