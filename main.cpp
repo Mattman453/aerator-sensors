@@ -63,7 +63,7 @@ int getTemperature(string filename) {
     int loc = line.find("=");
     line = line.substr(loc + 1);
 //    cout << line << endl;
-    int temp = atoi(line);
+    int temp = stoi(line);
     cout << temp << endl;
 
     return temp;
