@@ -46,9 +46,8 @@ string setupTemperature() {
     ifstream f("List.txt");
     string filename;
     getline(f, filename);
-    cout << filename << endl;
     f.close();
-    filename = filename + "/w1_slave";
+    filename = "/sys/bus/w1/devices/" + filename + "/w1_slave";
     return filename;
 }
 
