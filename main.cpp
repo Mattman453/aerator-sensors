@@ -49,14 +49,17 @@ int main() {
         setChannel(spiData, pressure);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
         output[0] = getOutput(spiData);
-        
+        sleep(1);
+
         setChannel(spiData, force);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
         output[2] = getOutput(spiData);
+        sleep(1);
         
         setChannel(spiData, moisture);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
         output[1] = getOutput(spiData);
+        sleep(1);
         
         sleep(1);
     }
