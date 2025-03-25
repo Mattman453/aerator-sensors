@@ -51,6 +51,18 @@ string setupTemperature() {
     return filename;
 }
 
+string getTemperature(string filename) {
+    ifstream f(filename);
+    string line;
+    
+    getline(f, line);
+    cout << line << endl;
+    getline(f, line);
+    cout << line << endl;
+
+    return line;
+}
+
 int main() {
     int fd;
     
@@ -61,7 +73,8 @@ int main() {
 //    cout << "Init result: " << fd << endl;
 
     string temperatureFilename = setupTemperature();
-    cout << temperatureFilename << endl;
+//    cout << temperatureFilename << endl;
+    string temperature = getTemperature(temperatureFilename);
     
     while (true) {
         unsigned char spiData[3];
