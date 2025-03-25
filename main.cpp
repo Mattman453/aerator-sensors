@@ -6,10 +6,8 @@
 #include <string>
 #include <chrono>
 #include <thread>
-#include <boost/algorithm/string.hpp>
 
 using namespace std;
-using namespace boost::algorithm;
 
 static const int CHANNEL = 1;
 
@@ -48,7 +46,7 @@ string setupTemperatre() {
     readline(f, filename);
     f.close();
     filename = filename + "w1_slave";
-    return trim(filename);
+    return filename;
 }
 
 int main() {
