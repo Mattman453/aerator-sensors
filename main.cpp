@@ -66,7 +66,7 @@ int main() {
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
         output[3] = getOutput(spiData);
         cout << output[3] << endl;
-        sleep(1);
+//        sleep(1);
         
 //        sleep(1);
     }
