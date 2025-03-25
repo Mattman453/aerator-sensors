@@ -43,7 +43,7 @@ string setupTemperatre() {
 
     ifstream f("$HOME/aerator-sensors/List.txt");
     string filename;
-    readline(f, filename);
+    getline(f, filename);
     f.close();
     filename = filename + "w1_slave";
     return filename;
