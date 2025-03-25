@@ -6,6 +6,7 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -51,7 +52,7 @@ string setupTemperature() {
     return filename;
 }
 
-string getTemperature(string filename) {
+int getTemperature(string filename) {
     ifstream f(filename);
     string line;
     
@@ -61,9 +62,11 @@ string getTemperature(string filename) {
 //    cout << line << endl;
     int loc = line.find("=");
     line = line.substr(loc + 1);
-    cout << line << endl;
+//    cout << line << endl;
+    int temp = atoi(line);
+    cout << temp << endl;
 
-    return line;
+    return temp;
 }
 
 int main() {
