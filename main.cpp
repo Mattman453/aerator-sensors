@@ -56,8 +56,11 @@ string getTemperature(string filename) {
     string line;
     
     getline(f, line);
-    cout << line << endl;
+//    cout << line << endl;
     getline(f, line);
+//    cout << line << endl;
+    int loc = line.find("=");
+    line = line.substr(loc + 1);
     cout << line << endl;
 
     return line;
