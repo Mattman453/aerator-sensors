@@ -44,6 +44,7 @@ string setupTemperature() {
     ifstream f("$HOME/aerator-sensors/List.txt");
     string filename;
     getline(f, filename);
+    cout << filename << endl;
     f.close();
     filename = filename + "w1_slave";
     return filename;
