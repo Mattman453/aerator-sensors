@@ -43,7 +43,7 @@ string setupTemperature() {
 
     sleep(5);
 
-    ifstream f("#HOME/aerator-sensors/List.txt");
+    ifstream f("$HOME/aerator-sensors/List.txt");
     string filename;
     getline(f, filename);
     cout << filename << endl;
