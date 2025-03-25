@@ -66,7 +66,7 @@ int getTemperature(string filename) {
     int temp = stoi(line);
 //    cout << temp << endl;
 
-    return temp;
+    return (temp / 1000.0) * (9.0/5.0) + 32.0;
 }
 
 int main() {
