@@ -9,9 +9,10 @@ using namespace std;
 
 static const int CHANNEL = 1;
 
-static const int pressure = 0;
-static const int moisture = 1;
+static const int pressure = 3;
+static const int moisture= 0;
 static const int force = 2;
+static const int temperature = 1;
 
 static const float LSBSIZE = 5.0/1024;
 
@@ -38,7 +39,7 @@ int main() {
     
     while (true) {
         unsigned char spiData[3];
-        int output[3] = {0,0,0};
+        int output[4] = {0,0,0,0};
         
         /*for (int i = 0; i < 8; i++) {
             setChannel(spiData, i);
@@ -46,22 +47,28 @@ int main() {
             //this_thread::sleep_for(chrono::nanoseconds(100000000));
         }*/
         
-        setChannel(spiData, pressure);
-        wiringPiSPIDataRW(CHANNEL, spiData, 3);
-        output[0] = getOutput(spiData);
-        sleep(1);
+//        setChannel(spiData, pressure);
+//        wiringPiSPIDataRW(CHANNEL, spiData, 3);
+//        output[0] = getOutput(spiData);
+//        sleep(1);
 
-        setChannel(spiData, force);
+//        setChannel(spiData, force);
+//        wiringPiSPIDataRW(CHANNEL, spiData, 3);
+//        output[1] = getOutput(spiData);
+//        sleep(1);
+
+//        setChannel(spiData, moisture);
+//        wiringPiSPIDataRW(CHANNEL, spiData, 3);
+//        output[2] = getOutput(spiData);
+//        sleep(1);
+
+        setChannel(spiData, temperature);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
-        output[2] = getOutput(spiData);
+        output[3] = getOutput(spiData);
+        cout << output[3] << endl;
         sleep(1);
         
-        setChannel(spiData, moisture);
-        wiringPiSPIDataRW(CHANNEL, spiData, 3);
-        output[1] = getOutput(spiData);
-        sleep(1);
-        
-        sleep(1);
+//        sleep(1);
     }
     
     return 0;
