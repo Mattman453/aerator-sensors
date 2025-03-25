@@ -1,4 +1,3 @@
-#include <cstdio>
 #include <iostream>
 #include <bits/stdc++.h>
 #include <unistd.h>
@@ -34,6 +33,7 @@ long getTemperature(string filename) {
     long loc = line.find("=");
     line = line.substr(loc + 1);
 //    cout << line << endl;
+    f.close();
     long temp = stoi(line);
 //    cout << temp << endl;
 
