@@ -2,10 +2,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #include <unistd.h>
-#include <wiringPiSPI.h>
 #include <string>
-#include <chrono>
-#include <thread>
 #include <stdlib.h>
 #include "temperature.hpp"
 
