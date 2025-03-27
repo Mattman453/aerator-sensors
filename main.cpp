@@ -75,11 +75,11 @@ int main() {
         output[2] = getSPIOutput(spiData);
         output[2] = convertValueToMoistureVoltage(output[2]);
         cout << "Moisture: " << output[2] << "%" << endl;
-        sleep(1);
+        this_thread::sleep_for(chrono::milliseconds(1000));
 
         output[3] = getTemperature(temperatureFilename);
         cout << "Temperature: " << output[3] << endl;
-        sleep(1);
+        this_thread::sleep_for(chrono::milliseconds(1000));
         
 //        sleep(1);
     }
