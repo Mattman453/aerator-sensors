@@ -53,7 +53,7 @@ int main() {
 //        output[1] = getSPIOutput(spiData);
 //        sleep(1);
 
-        setChannel(spiData, moisture);
+        setChannel(spiData, MOISTURE);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
         output[2] = getSPIOutput(spiData);
         output[2] = convertValueToMoisturePercentage(output[2]);
