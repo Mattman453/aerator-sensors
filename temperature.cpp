@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 #include <unistd.h>
 #include <string>
+#include <fstream>
 #include "temperature.hpp"
 
 using namespace std;
