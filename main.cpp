@@ -27,7 +27,7 @@ void setChannel(unsigned char *data, long channel) {
     data[0] = data[0] + (channel << 3);
 }
 
-long convertValueToMoistureVoltage(long data) {
+long convertValueToMoisturePercentage(long data) {
     long output = data/614.4 * 100.0;
     return output;
 }
@@ -73,7 +73,7 @@ int main() {
         setChannel(spiData, moisture);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
         output[2] = getSPIOutput(spiData);
-        output[2] = convertValueToMoistureVoltage(output[2]);
+        output[2] = convertValueToMoisturePercentage(output[2]);
         cout << "Moisture: " << output[2] << "%" << endl;
         this_thread::sleep_for(chrono::milliseconds(1000));
 
