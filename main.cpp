@@ -13,7 +13,7 @@ using namespace std;
 
 static const long CHANNEL = 1;
 
-static const long pressure = 3;
+static const long pressure = 1;
 static const long moisture= 0;
 static const long force = 2;
 
