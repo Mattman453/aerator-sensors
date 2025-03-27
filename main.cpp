@@ -35,26 +35,14 @@ int main() {
 
     string temperatureFilename = setupTemperature();
 //    cout << temperatureFilename << endl;
-//    long temperature = getTemperature(temperatureFilename);
     
     while (true) {
         unsigned char spiData[3];
         long output[4] = {0,0,0,0};
         
-        /*for (long i = 0; i < 8; i++) {
-            setChannel(spiData, i);
-            //cout << to_string(spiData[0]) << endl;
-            //this_thread::sleep_for(chrono::nanoseconds(100000000));
-        }*/
-        
 //        setChannel(spiData, pressure);
 //        wiringPiSPIDataRW(CHANNEL, spiData, 3);
 //        output[0] = getSPIOutput(spiData);
-//        sleep(1);
-
-//        setChannel(spiData, force);
-//        wiringPiSPIDataRW(CHANNEL, spiData, 3);
-//        output[1] = getSPIOutput(spiData);
 //        sleep(1);
 
         setChannel(spiData, MOISTURE);
@@ -67,7 +55,7 @@ int main() {
         cout << "Temperature: " << output[3] << endl;
         this_thread::sleep_for(chrono::milliseconds(1000));
         
-//        sleep(1);
+        this_thread::sleep_for(chrono::milliseconds(1000));
     }
     
     return 0;
