@@ -20,8 +20,8 @@ long convertValueToMoisturePercentage(long data) {
     return output;
 }
 
-long getMoisturePercentage() {
-    return convertValueToMoisturePercentage(getSPIOutput(MOISTURE));
+long getMoisturePercentage(unsigned char *data) {
+    return convertValueToMoisturePercentage(getSPIOutput(data));
 }
 
 int main() {
@@ -47,7 +47,7 @@ int main() {
 
         setChannel(spiData, MOISTURE);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
-        output[2] = getMoisturePercentage();
+        output[2] = getMoisturePercentage(spiData);
         cout << "Moisture: " << output[2] << "%" << endl;
         this_thread::sleep_for(chrono::milliseconds(1000));
 
