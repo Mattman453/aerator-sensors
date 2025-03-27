@@ -8,6 +8,7 @@
 #include <thread>
 #include <stdlib.h>
 #include "temperature.hpp"
+#include "force.hpp"
 
 using namespace std;
 
