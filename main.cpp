@@ -9,31 +9,14 @@
 #include <stdlib.h>
 #include "temperature.hpp"
 #include "force.hpp"
+#include "SPI.hpp"
 
 using namespace std;
 
 static const long CHANNEL = 1;
 
-static const long pressure = 1;
-static const long moisture= 0;
-static const long force = 2;
-
-static const double LSBSIZE = 5.0/1024;
-
-void setChannel(unsigned char *data, long channel) {
-    data[0] = (0x01 << 7) | (0x01 << 6);
-    data[1] = 0;
-    data[2] = 0;
-    data[0] = data[0] + (channel << 3);
-}
-
 long convertValueToMoisturePercentage(long data) {
     long output = data/614.4 * 100.0;
-    return output;
-}
-
-long getSPIOutput(unsigned char *data) {
-    long output = ((data[0] & 3) << 8) + data[1];
     return output;
 }
 
