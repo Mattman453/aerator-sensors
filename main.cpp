@@ -31,7 +31,7 @@ long convertValueToMoistureVoltage(long data) {
     return output;
 }
 
-long getOutput(unsigned char *data) {
+long getSPIOutput(unsigned char *data) {
     long output = ((data[0] & 3) << 8) + data[1];
     return output;
 }
@@ -61,17 +61,17 @@ int main() {
         
 //        setChannel(spiData, pressure);
 //        wiringPiSPIDataRW(CHANNEL, spiData, 3);
-//        output[0] = getOutput(spiData);
+//        output[0] = getSPIOutput(spiData);
 //        sleep(1);
 
 //        setChannel(spiData, force);
 //        wiringPiSPIDataRW(CHANNEL, spiData, 3);
-//        output[1] = getOutput(spiData);
+//        output[1] = getSPIOutput(spiData);
 //        sleep(1);
 
         setChannel(spiData, moisture);
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
-        output[2] = getOutput(spiData);
+        output[2] = getSPIOutput(spiData);
         output[2] = convertValueToMoistureVoltage(output[2]);
         cout << "Moisture: " << output[2] << "%" << endl;
         sleep(1);
