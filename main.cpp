@@ -14,7 +14,7 @@
 
 using namespace std;
 
-#define M_PI 3.141592653589793238462643
+//#define M_PI 3.141592653589793238462643
 
 enum status {
     READY, NOT_READY, STANDBY
