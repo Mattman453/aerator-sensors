@@ -37,10 +37,14 @@ double convertInchToMeter(double number) {
 }
 
 double getArea() {
-    double outerRadius = convertInchToMeter(15.0/16.0);
-    double innerRadius = convertInchToMeter(13.0/16.0);
-    double outerCircleArea = 2 * M_PI * outerRadius;
-    double innerCircleArea = 2 * M_PI * innerRadius;
+    /**
+     * Outer Diameter: 15/16" or 23.88mm
+     * Inner Diameter: 13/16" or 19.65mm
+     */
+    double outerRadius = 0.02388 / 2.0;
+    double innerRadius = 0.01965 / 2.0;
+    double outerCircleArea = M_PI * outerRadius * outerRadius;
+    double innerCircleArea = M_PI * innerRadius * innerRadius;
     double area = outerCircleArea - innerCircleArea;
     return area * 2.0;
 }
