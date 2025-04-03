@@ -24,6 +24,7 @@ static const long CHANNEL = 1;
 
 long convertValueToMoisturePercentage(long data) {
     long output = data/614.4 * 100.0;
+    output = 100.0 - output;
     return output;
 }
 
