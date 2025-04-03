@@ -126,11 +126,11 @@ int main() {
         wiringPiSPIDataRW(CHANNEL, spiData, 3);
         moisture = getMoisturePercentage(spiData);
         cout << "Moisture: " << moisture << "%" << endl;
-        this_thread::sleep_for(chrono::milliseconds(1000));
+//        this_thread::sleep_for(chrono::milliseconds(1000));
 
         temperature = getTemperature(temperatureFilename);
-        cout << "Temperature: " << temperature << endl;
-        this_thread::sleep_for(chrono::milliseconds(1000));
+        cout << "Temperature: " << temperature  << "°F"<< endl;
+//        this_thread::sleep_for(chrono::milliseconds(1000));
         
         readyToAerate = isReady(moisture, force, temperature, true);
 
